@@ -43,7 +43,7 @@ import Capacitor
         // If the specified voice is not available we will fall back to default voice rather than raising an error.
         if voice {
             let allVoices = AVSpeechSynthesisVoice.speechVoices()
-            if let matchingVoice = allVoices.first(where: { $0.identifier == voice }) {
+            if let matchingVoice = allVoices.first(where: { $0.voiceURI == voice }) {
                 utterance.voice = matchingVoice
             }
         }
