@@ -61,9 +61,9 @@ class TextToSpeechWeb extends core.WebPlugin {
         this.throwUnimplementedError();
     }
     createSpeechSynthesisUtterance(options) {
-        //const voices = this.getSpeechSynthesisVoices();
+        const voices = this.getSpeechSynthesisVoices();
         const utterance = new SpeechSynthesisUtterance();
-        const { text, lang, rate, pitch, volume } = options;
+        const { text, lang, rate, pitch, volume, voice } = options;
         if (volume) {
             utterance.volume = volume >= 0 && volume <= 1 ? volume : 1;
         }
@@ -75,6 +75,9 @@ class TextToSpeechWeb extends core.WebPlugin {
         }
         if (lang) {
             utterance.lang = lang;
+        }
+        if (voice) {
+            utterance.voice = voices.find(v => v.voiceURI === voice) || null;
         }
         utterance.text = text;
         return utterance;
