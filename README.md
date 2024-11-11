@@ -199,7 +199,7 @@ addListener(eventName: 'onRangeStart', listenerFunc: (info: { start: number; end
 | **`rate`**     | <code>number</code> | The speed at which the utterance will be spoken at.                                                                                                                            | <code>1.0</code>       |
 | **`pitch`**    | <code>number</code> | The pitch at which the utterance will be spoken at.                                                                                                                            | <code>1.0</code>       |
 | **`volume`**   | <code>number</code> | The volume that the utterance will be spoken at.                                                                                                                               | <code>1.0</code>       |
-| **`voice`**    | <code>number</code> | The index of the selected voice that will be used to speak the utterance. Possible voices can be queried using `getSupportedVoices`.                                           |                        |
+| **`voice`**    | <code>string</code> | The voice uri of the selected voice that will be used to speak the utterance. Possible voices can be queried using `getSupportedVoices`.                                       |                        |
 | **`category`** | <code>string</code> | Select the iOS Audio session category. Possible values: `ambient` and `playback`. Use `playback` to play audio even when the app is in the background. Only available for iOS. | <code>"ambient"</code> |
 
 
