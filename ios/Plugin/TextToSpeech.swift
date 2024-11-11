@@ -29,7 +29,7 @@ import Capacitor
         self.resolveCurrentCall()
     }
 
-    @objc public func speak(_ text: String, _ lang: String, _ rate: Float, _ pitch: Float, _ category: String, _ volume: Float, _ voice: Int, _ call: CAPPluginCall) throws {
+    @objc public func speak(_ text: String, _ lang: String, _ rate: Float, _ pitch: Float, _ category: String, _ volume: Float, _ voice: String, _ call: CAPPluginCall) throws {
         self.synthesizer.stopSpeaking(at: .immediate)
         self.calls.append(call)
 
@@ -41,10 +41,10 @@ import Capacitor
 
         // Find the voice associated with the voice parameter if a voice specified.
         // If the specified voice is not available we will fall back to default voice rather than raising an error.
-        if voice >= 0 {
+        if voice {
             let allVoices = AVSpeechSynthesisVoice.speechVoices()
-            if voice < allVoices.count {
-                utterance.voice = allVoices[voice]
+            if let matchingVoice = allVoices.first(where: { $0.identifier == voice }) {
+                utterance.voice = matchingVoice
             }
         }
 

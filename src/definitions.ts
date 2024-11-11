@@ -73,10 +73,10 @@ export interface TTSOptions {
    */
   volume?: number;
   /**
-   * The index of the selected voice that will be used to speak the utterance.
+   * The voice uri of the selected voice that will be used to speak the utterance.
    * Possible voices can be queried using `getSupportedVoices`.
    */
-  voice?: number;
+  voice?: string;
   /**
    * Select the iOS Audio session category.
    * Possible values: `ambient` and `playback`.
